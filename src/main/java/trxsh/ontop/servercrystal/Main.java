@@ -8,6 +8,7 @@ import trxsh.ontop.servercrystal.command.CrystalStats;
 import trxsh.ontop.servercrystal.command.GlobalCrystalToggle;
 import trxsh.ontop.servercrystal.command.ToggleCrystals;
 import trxsh.ontop.servercrystal.config.FileConfig;
+import trxsh.ontop.servercrystal.listener.ArmEvent;
 import trxsh.ontop.servercrystal.listener.DamageEvent;
 import trxsh.ontop.servercrystal.listener.JoinEvent;
 import trxsh.ontop.servercrystal.loop.CrystalSweepLoop;
@@ -77,6 +78,7 @@ public final class Main extends JavaPlugin {
 
         Bukkit.getPluginManager().registerEvents(new DamageEvent(), this);
         Bukkit.getPluginManager().registerEvents(new JoinEvent(), this);
+        Bukkit.getPluginManager().registerEvents(new ArmEvent(), this);
 
         Bukkit.getPluginCommand("crystalstats").setExecutor(new CrystalStats());
         Bukkit.getPluginCommand("globalfastcrystaltoggle").setExecutor(new GlobalCrystalToggle());
