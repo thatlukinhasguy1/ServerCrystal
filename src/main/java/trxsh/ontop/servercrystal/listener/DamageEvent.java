@@ -33,6 +33,8 @@ public class DamageEvent implements Listener {
 
         if(entity instanceof EnderCrystal) {
 
+            Main.crystalSweep.crystals.add(entity);
+
             if(e.getDamager() instanceof Player) {
 
                 Player player = (Player) e.getDamager();
@@ -42,16 +44,16 @@ public class DamageEvent implements Listener {
                 if(!b)
                     return;
 
-                EndCrystal NmsEntity = ((CraftEnderCrystal)entity).getHandle();
+                EndCrystal NmsEntity = ((CraftEnderCrystal) entity).getHandle();
 
                 ServerPlayer sp = ((CraftPlayer) player).getHandle();
                 ServerPlayerConnection c = sp.connection;
 
-                c.send(new ClientboundRemoveEntitiesPacket(NmsEntity.getId()));
-
                 NmsEntity.kill();
                 NmsEntity.remove(net.minecraft.world.entity.Entity.RemovalReason.KILLED);
                 NmsEntity.onClientRemoval();
+
+                c.send(new ClientboundRemoveEntitiesPacket(NmsEntity.getId()));
 
                 long post = System.currentTimeMillis();
 

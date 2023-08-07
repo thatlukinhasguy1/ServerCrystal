@@ -10,6 +10,7 @@ import trxsh.ontop.servercrystal.command.ToggleCrystals;
 import trxsh.ontop.servercrystal.config.FileConfig;
 import trxsh.ontop.servercrystal.listener.DamageEvent;
 import trxsh.ontop.servercrystal.listener.JoinEvent;
+import trxsh.ontop.servercrystal.loop.CrystalSweepLoop;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,6 +24,10 @@ public final class Main extends JavaPlugin {
     public static HashMap<UUID, Boolean> stats = new HashMap<>();
 
     public static boolean enableGlobalCrystals = true;
+
+    public static CrystalSweepLoop crystalSweep = null;
+
+    public static Main Instance = null;
 
     @Override
     public void onEnable() {
@@ -76,6 +81,11 @@ public final class Main extends JavaPlugin {
         Bukkit.getPluginCommand("crystalstats").setExecutor(new CrystalStats());
         Bukkit.getPluginCommand("globalfastcrystaltoggle").setExecutor(new GlobalCrystalToggle());
         Bukkit.getPluginCommand("togglefastcrystals").setExecutor(new ToggleCrystals());
+
+        Instance = this;
+
+        crystalSweep = new CrystalSweepLoop();
+        crystalSweep.start();
 
         long postLoad = System.currentTimeMillis();
 
