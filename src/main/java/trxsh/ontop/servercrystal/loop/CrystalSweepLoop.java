@@ -37,6 +37,15 @@ public class CrystalSweepLoop {
 
                         EndCrystal NmsEntity = ((CraftEnderCrystal) crystal).getHandle();
 
+                        for(Player p : Bukkit.getOnlinePlayers()) {
+
+                            ServerPlayer sp = ((CraftPlayer) p).getHandle();
+                            ServerPlayerConnection c = sp.connection;
+
+                            c.send(new ClientboundRemoveEntitiesPacket(NmsEntity.getId()));
+
+                        }
+
                         NmsEntity.kill();
                         NmsEntity.remove(net.minecraft.world.entity.Entity.RemovalReason.KILLED);
                         NmsEntity.onClientRemoval();
@@ -67,7 +76,7 @@ public class CrystalSweepLoop {
                 }
 
             }
-        }, 20L, 20L);
+        }, 1L, 1L);
 
     }
 
