@@ -25,7 +25,7 @@ public final class Main extends JavaPlugin {
 
     public static boolean enableGlobalCrystals = true;
 
-    public static CrystalSweepLoop crystalSweep = null;
+    public static CrystalSweepLoop crystalSweep;
 
     public static Main Instance = null;
 

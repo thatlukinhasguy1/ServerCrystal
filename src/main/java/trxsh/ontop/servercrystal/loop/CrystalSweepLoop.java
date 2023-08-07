@@ -20,6 +20,8 @@ public class CrystalSweepLoop {
 
     public List<Entity> crystals = new ArrayList<>();
 
+    public CrystalSweepLoop() { }
+
     public void start() {
 
         Bukkit.getScheduler().scheduleSyncRepeatingTask(Main.Instance, new Runnable() {
