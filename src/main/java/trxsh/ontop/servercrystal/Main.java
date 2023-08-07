@@ -12,6 +12,7 @@ import trxsh.ontop.servercrystal.listener.ArmEvent;
 import trxsh.ontop.servercrystal.listener.DamageEvent;
 import trxsh.ontop.servercrystal.listener.JoinEvent;
 import trxsh.ontop.servercrystal.loop.CrystalSweepLoop;
+import trxsh.ontop.servercrystal.packet.PacketListener;
 
 import java.io.File;
 import java.io.IOException;
@@ -27,6 +28,7 @@ public final class Main extends JavaPlugin {
     public static boolean enableGlobalCrystals = true;
 
     public static CrystalSweepLoop crystalSweep;
+    public static PacketListener packetListener;
 
     public static Main Instance = null;
 
@@ -88,6 +90,9 @@ public final class Main extends JavaPlugin {
 
         crystalSweep = new CrystalSweepLoop();
         crystalSweep.start();
+
+        packetListener = new PacketListener();
+        packetListener.listen();
 
         long postLoad = System.currentTimeMillis();
 

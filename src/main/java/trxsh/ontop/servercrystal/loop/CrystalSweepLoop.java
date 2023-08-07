@@ -35,7 +35,7 @@ public class CrystalSweepLoop {
 
                     long pre = System.currentTimeMillis();
 
-                    if(!crystal.isDead()) {
+                    if(crystal.isDead()) {
 
                         EndCrystal NmsEntity = ((CraftEnderCrystal) crystal).getHandle();
 
@@ -67,7 +67,7 @@ public class CrystalSweepLoop {
 
                                             long elapsed = (post - pre);
 
-                                            p.sendMessage("crystal was swept (" + ChatColor.AQUA + elapsed + "ms" + ChatColor.GRAY + ")");
+                                            p.sendMessage(ChatColor.GRAY + "crystal was swept (" + ChatColor.AQUA + elapsed + "ms" + ChatColor.GRAY + ")");
 
                                         }
 
@@ -76,6 +76,8 @@ public class CrystalSweepLoop {
                     }
 
                 }
+
+                crystals.clear();
 
             }
         }, 1L, 1L);
