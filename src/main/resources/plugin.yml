@@ -1,0 +1,15 @@
+name: ServerCrystal
+version: '${project.version}'
+main: trxsh.ontop.servercrystal.Main
+api-version: '1.20'
+description: made by trxsh 2.0#1988. Uses Marlow's Crystal Algorhythm using NMS.
+commands:
+  crystalstats:
+    description: shows operators crystal statistics.
+    usage: /<command>
+  globalfastcrystaltoggle:
+    description: globally toggles every player's usage of FastCrystals.
+    usage: /<command>
+  togglefastcrystals:
+    description: toggles fast crystals for a player.
+    usage: /<command>
