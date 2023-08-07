@@ -68,7 +68,7 @@ public class DamageEvent implements Listener {
 
                                     long elapsed = (post - pre);
 
-                                    p.sendMessage(ChatColor.AQUA + player.getName() + ChatColor.GRAY + " used fast crystal (" + ChatColor.AQUA + elapsed + "took ms" + ChatColor.GRAY + ")");
+                                    p.sendMessage(ChatColor.AQUA + player.getName() + ChatColor.GRAY + " used fast crystal (" + ChatColor.AQUA + elapsed + "ms" + ChatColor.GRAY + ")");
 
                                 }
 

@@ -35,7 +35,7 @@ public class GlobalCrystalToggle implements CommandExecutor {
         } else {
 
             Main.enableGlobalCrystals = true;
-            Bukkit.broadcastMessage(ChatColor.GREEN + "Fast crystals is globally disabled.");
+            Bukkit.broadcastMessage(ChatColor.GREEN + "Fast crystals is globally enabled.");
 
         }
 

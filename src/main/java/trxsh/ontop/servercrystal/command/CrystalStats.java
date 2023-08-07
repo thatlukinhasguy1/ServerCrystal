@@ -32,11 +32,13 @@ public class CrystalStats implements CommandExecutor {
 
         if(b) {
 
-            p.sendMessage(ChatColor.GRAY + "Global crystal stats are now " + ChatColor.AQUA + "disabled.");
+            Main.stats.put(p.getUniqueId(), false);
+            p.sendMessage(ChatColor.GRAY + "Your global crystal stats are now " + ChatColor.AQUA + "disabled.");
 
         } else {
 
-            p.sendMessage(ChatColor.GRAY + "Global crystal are now " + ChatColor.AQUA + "enabled.");
+            Main.stats.put(p.getUniqueId(), true);
+            p.sendMessage(ChatColor.GRAY + "Your global crystal stats are now " + ChatColor.AQUA + "enabled.");
 
         }
 

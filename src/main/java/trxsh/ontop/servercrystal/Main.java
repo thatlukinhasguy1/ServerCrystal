@@ -19,8 +19,8 @@ import java.util.UUID;
 
 public final class Main extends JavaPlugin {
 
-    public static final HashMap<UUID, Boolean> players = new HashMap<>();
-    public static final HashMap<UUID, Boolean> stats = new HashMap<>();
+    public static HashMap<UUID, Boolean> players = new HashMap<>();
+    public static HashMap<UUID, Boolean> stats = new HashMap<>();
 
     public static boolean enableGlobalCrystals = true;
 
@@ -30,6 +30,9 @@ public final class Main extends JavaPlugin {
         long preLoad = System.currentTimeMillis();
 
         Bukkit.getLogger().info("loading plugin...");
+
+        if(!getDataFolder().exists())
+            getDataFolder().mkdir();
 
         FileConfig config = new FileConfig(new File(getDataFolder(), "config.sav"));
 
@@ -45,6 +48,8 @@ public final class Main extends JavaPlugin {
         }
 
         for(Player p : Bukkit.getOnlinePlayers()) {
+
+            stats.put(p.getUniqueId(), false);
 
             if(!players.containsKey(p.getUniqueId())) {
 
@@ -74,7 +79,7 @@ public final class Main extends JavaPlugin {
 
         long postLoad = System.currentTimeMillis();
 
-        Bukkit.getLogger().info("loaded successfully. (" + (preLoad - postLoad) + "ms)");
+        Bukkit.getLogger().info("loaded successfully. (" + (postLoad - preLoad) + "ms)");
 
     }
 

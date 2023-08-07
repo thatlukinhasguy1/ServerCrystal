@@ -14,6 +14,8 @@ public class JoinEvent implements Listener {
 
         Player p = e.getPlayer();
 
+        Main.stats.put(p.getUniqueId(), false);
+
         if(!Main.players.containsKey(p.getUniqueId())) {
 
             Main.players.put(p.getUniqueId(), false);

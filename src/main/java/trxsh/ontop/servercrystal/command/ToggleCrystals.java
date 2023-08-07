@@ -32,10 +32,12 @@ public class ToggleCrystals implements CommandExecutor {
 
         if(b) {
 
+            Main.players.put(p.getUniqueId(), false);
             p.sendMessage(ChatColor.GRAY + "Fast crystals are now " + ChatColor.RED + "disabled.");
 
         } else {
 
+            Main.players.put(p.getUniqueId(), true);
             p.sendMessage(ChatColor.GRAY + "Fast crystals are now " + ChatColor.GREEN + "enabled.");
 
         }

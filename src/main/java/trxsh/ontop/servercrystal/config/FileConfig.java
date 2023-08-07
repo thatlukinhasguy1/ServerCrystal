@@ -35,6 +35,7 @@ public class FileConfig {
         }
 
         writer.write(builder.toString());
+        writer.close();
 
     }
 
